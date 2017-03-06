@@ -55,19 +55,18 @@ public class MainActivity extends AppCompatActivity {
     }
 
     // TODO (8) Create a method that will get the user's preferred location and execute your new AsyncTask and call it loadWeatherData
-    private void loadWeatherData(){
+    private void loadWeatherData() {
         String location = SunshinePreferences.getPreferredWeatherLocation(MainActivity.this);
         new FetchWeatherTask().execute(location);
     }
-}
 
     // TODO (5) Create a class that extends AsyncTask to perform network requests
-    public class FetchWeatherTask extends AsyncTask<String, Void, String[]>{
+    public class FetchWeatherTask extends AsyncTask<String, Void, String[]> {
 
         @Override
         protected String[] doInBackground(String... params) {
             //no zip code
-            if(params.length == 0){
+            if (params.length == 0) {
                 return null;
             }
 
@@ -89,8 +88,8 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected void onPostExecute(String[] weatherData) {
-            if (weatherData != null){
-                for(String weatherString : weatherData){
+            if (weatherData != null) {
+                for (String weatherString : weatherData) {
                     mWeatherTextView.append(weatherString + "\n\n\n");
                 }
             }
@@ -98,3 +97,4 @@ public class MainActivity extends AppCompatActivity {
     }
     // TODO (6) Override the doInBackground method to perform your network requests
     // TODO (7) Override the onPostExecute method to display the results of the network request
+}
