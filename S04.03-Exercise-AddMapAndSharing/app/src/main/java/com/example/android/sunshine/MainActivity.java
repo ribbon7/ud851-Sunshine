@@ -222,7 +222,29 @@ public class MainActivity extends AppCompatActivity implements ForecastAdapterOn
         }
 
         // TODO (2) Launch the map when the map menu item is clicked
+        if(id == R.id.action_map) {
+            openMap();
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void openMap(){
+        String addr = "Edmonton, AB";
+        int zoomLevel = 12;
+
+        Uri.Builder builder = new Uri.Builder();
+        Uri uri = builder.scheme("geo")
+                .path("0,0")
+                .appendQueryParameter("q", addr)
+                .appendQueryParameter("z", String.valueOf(zoomLevel))
+                .build();
+
+        Intent mapIntent = new Intent(Intent.ACTION_VIEW, uri);
+
+        if(mapIntent.resolveActivity(getPackageManager()) != null){
+            startActivity(mapIntent);
+        }
     }
 }
