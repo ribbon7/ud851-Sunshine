@@ -13,7 +13,7 @@ import android.widget.TextView;
 
 public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapterViewHolder> {
 
-    private String weatherData;
+    private String weatherData[];
 
     public ForecastAdapter(){
 
@@ -31,12 +31,21 @@ public class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.Foreca
 
     @Override
     public void onBindViewHolder(ForecastAdapterViewHolder holder, int position) {
-
+        holder.weatherTextView.setText(weatherData[position]);
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        if (weatherData == null) {
+            return 0;
+        } else {
+            return weatherData.length;
+        }
+    }
+
+    public void setWeatherData(String weatherData[]){
+        this.weatherData = weatherData;
+        notifyDataSetChanged();
     }
 
     class ForecastAdapterViewHolder extends RecyclerView.ViewHolder{
