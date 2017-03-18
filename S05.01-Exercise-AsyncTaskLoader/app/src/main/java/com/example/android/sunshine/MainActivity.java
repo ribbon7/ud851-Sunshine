@@ -124,8 +124,8 @@ public class MainActivity extends AppCompatActivity
         locationBundle.putString(LOCATION_KEY, location);
 
         LoaderManager loaderManager = getSupportLoaderManager();
-        Loader<String> githubSearchLoader = loaderManager.getLoader(FETCH_WEATHER_LOADER);
-        if (githubSearchLoader == null) {
+        Loader<String> searchWeatherLoader = loaderManager.getLoader(FETCH_WEATHER_LOADER);
+        if (searchWeatherLoader == null) {
             loaderManager.initLoader(FETCH_WEATHER_LOADER, locationBundle, this);
         } else {
             loaderManager.restartLoader(FETCH_WEATHER_LOADER, locationBundle, this);
