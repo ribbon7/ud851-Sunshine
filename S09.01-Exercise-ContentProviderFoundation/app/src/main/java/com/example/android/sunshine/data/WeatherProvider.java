@@ -111,6 +111,18 @@ public class WeatherProvider extends ContentProvider {
         Cursor retCursor;
 //TODO (11) add for a single row!!!
         switch(match){
+            case CODE_WEATHER_WITH_DATE:
+                String date = uri.getLastPathSegment();
+                selectionArgs = new String[]{date};
+
+                retCursor = db.query(WeatherContract.WeatherEntry.TABLE_NAME,
+                        projection,
+                        WeatherContract.WeatherEntry.COLUMN_DATE + " = ?",
+                        selectionArgs,
+                        null,
+                        null,
+                        sortOrder);
+                break;
             case CODE_WEATHER:
                 retCursor = db.query(WeatherContract.WeatherEntry.TABLE_NAME,
                         projection,

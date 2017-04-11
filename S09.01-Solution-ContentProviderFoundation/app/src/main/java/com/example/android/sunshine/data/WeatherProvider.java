@@ -233,8 +233,8 @@ public class WeatherProvider extends ContentProvider {
                         null,
                         sortOrder);
 
-                break;
-            }
+            break;
+        }
 
             /*
              * When sUriMatcher's match method is called with a URI that looks EXACTLY like this
