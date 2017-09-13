@@ -110,7 +110,7 @@ class ForecastAdapter extends RecyclerView.Adapter<ForecastAdapter.ForecastAdapt
 
 //      COMPLETED (7) Replace the single TextView with Views to display all of the weather info
 
-        /****************
+        /**************
          * Weather Icon *
          ****************/
         int weatherId = mCursor.getInt(MainActivity.INDEX_WEATHER_CONDITION_ID);
